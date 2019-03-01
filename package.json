@@ -1,0 +1,31 @@
+{
+  "name": "expo-image-deep-zoom",
+  "version": "0.0.0",
+  "description": "Deep zoom in high pixel images",
+  "main": "src/index.js",
+  "author": "Daniel Fernando Lourusso <dflourusso@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/dflourusso/expo-image-deep-zoom",
+  "keywords": [
+    "expo",
+    "react-native",
+    "image",
+    "zoom",
+    "offline"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "files": [
+    "src/"
+  ],
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.6.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "jest": "^23.6.0"
+  }
+}
