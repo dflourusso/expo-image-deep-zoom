@@ -1,4 +1,4 @@
-import { Image } from 'react-native'
+import { Image, InteractionManager } from 'react-native'
 import { FileSystem, ImageManipulator } from 'expo'
 
 /*
@@ -63,8 +63,12 @@ export default class TileGrid {
       if (exists) return resolve()
       for (const i in tiles) {
         if (tiles.hasOwnProperty(i)) {
-          await this._manipulateTile(tiles[i])
-          this.onProgress(Math.round((parseInt(i) + 1) * 100 / tiles.length))
+          await new Promise((resolve, reject) =>
+            InteractionManager.runAfterInteractions(() =>
+              this._manipulateTile(tiles[i]).then(resolve).catch(reject)
+            )
+          )
+          this.onProgress({ loaded: parseInt(i) + 1, total: tiles.length })
         }
       }
       await FileSystem.writeAsStringAsync(downloadSuccessFile, '')

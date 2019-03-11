@@ -1,6 +1,6 @@
 {
   "name": "expo-image-deep-zoom",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Deep zoom in high pixel images",
   "main": "src/index.js",
   "author": "Daniel Fernando Lourusso <dflourusso@gmail.com>",
