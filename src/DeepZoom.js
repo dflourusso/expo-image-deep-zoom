@@ -26,6 +26,9 @@ export default class DeepZoom extends React.Component {
           latitudeDelta: 150,
           longitudeDelta: 150
         }}
+        rotateEnabled={false}
+        showsCompass={false}
+        pitchEnabled={false}
       >
         <MapView.UrlTile urlTemplate={urlTemplate} tileSize={256}/>
       </MapView>
