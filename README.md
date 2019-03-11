@@ -2,6 +2,8 @@ Expo Image Deep Zoom
 ===
 > Use **MapView** to zoom big images
 
+![Zoom image](./img/demo.gif)
+
 ### Installation
 
 `yarn add expo-image-deep-zoom`
