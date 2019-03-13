@@ -10,7 +10,12 @@ function latToTileY(lat, zoom) {
   return Math.floor((1 - Math.log(Math.tan(degToRad(lat)) + 1 / Math.cos(degToRad(lat))) / Math.PI) / 2 * Math.pow(2, zoom))
 }
 
+function parseXY(xy, ratio) {
+  return xy < ratio ? xy : xy - ratio
+}
+
 export function tilesForZoom(region, zoom) {
+  const ratio = Math.pow(2, zoom)
   const minLon = region.longitude - region.longitudeDelta / 2
   const minLat = region.latitude - region.latitudeDelta / 2
   const maxLon = region.longitude + region.longitudeDelta / 2
@@ -25,7 +30,11 @@ export function tilesForZoom(region, zoom) {
 
   for (let x = minTileX; x <= maxTileX; x++) {
     for (let y = minTileY; y <= maxTileY; y++) {
-      tiles.push({ x, y, z: zoom })
+      tiles.push({
+        x: parseXY(x, ratio),
+        y: parseXY(y, ratio),
+        z: zoom
+      })
     }
   }
 

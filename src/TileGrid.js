@@ -53,7 +53,9 @@ export default class TileGrid {
   async manipulateTiles(tiles) {
     for (const i in tiles) {
       if (tiles.hasOwnProperty(i)) {
-        await this._manipulateTile(tiles[i])
+        await this._manipulateTile(tiles[i]).catch((e) => {
+          if (__DEV__) console.log('Tile manipulation error', e)
+        })
         this.onProgress({ loaded: parseInt(i) + 1, total: tiles.length })
       }
     }
@@ -64,9 +66,7 @@ export default class TileGrid {
     const to = `${this.cacheDirectory}/${fileName}`
     const actions = [{ crop: this._getDimensionsForCrop(tile) }, { resize: { width: 256, height: 256 } }]
     const saveOptions = { format: 'jpeg' }
-    const result = await ImageManipulator.manipulateAsync(this.imageUri, actions, saveOptions).catch((e) => {
-      if (__DEV__) console.log('Tile manipulation error', e)
-    })
+    const result = await ImageManipulator.manipulateAsync(this.imageUri, actions, saveOptions)
     await FileSystem.moveAsync({ from: result.uri, to })
     this._tilesOnDisk.push(fileName)
   }
