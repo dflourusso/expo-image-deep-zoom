@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "10"
+script:
+  - yarn --version
 deploy:
   provider: npm
   email: dflourusso@gmail.com
