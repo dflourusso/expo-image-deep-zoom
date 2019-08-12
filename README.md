@@ -13,7 +13,7 @@ Expo Image Deep Zoom
 ```javascript 
 import React from 'react'
 import { InteractionManager, ActivityIndicator } from 'react-native'
-import { FileSystem } from 'expo'
+import * as FileSystem from 'expo-file-system'
 
 import DeepZoom from 'expo-image-deep-zoom'
 
