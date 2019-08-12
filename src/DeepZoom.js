@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActivityIndicator, PixelRatio, StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
-import { MapView } from 'expo'
+import MapView from 'react-native-maps'
 
 import TileGrid from './TileGrid'
 import { tilesForZoom } from './RegionToTile'

@@ -1,5 +1,6 @@
 import { Image } from 'react-native'
-import { FileSystem, ImageManipulator } from 'expo'
+import * as ImageManipulator from 'expo-image-manipulator'
+import * as FileSystem from 'expo-file-system'
 
 /*
 * Usage:
